@@ -26,6 +26,8 @@ struct aclint_mswi_data {
 	u32 hart_count;
 };
 
+int aclint_mswi_warm_init(void);
+
 int aclint_mswi_cold_init(struct aclint_mswi_data *mswi);
 
 #endif

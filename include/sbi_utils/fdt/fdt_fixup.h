@@ -9,8 +9,6 @@
 #ifndef __FDT_FIXUP_H__
 #define __FDT_FIXUP_H__
 
-#include <sbi/sbi_list.h>
-
 struct sbi_cpu_idle_state {
 	const char *name;
 	uint32_t suspend_param;
@@ -32,7 +30,7 @@ struct sbi_cpu_idle_state {
  * @param states: array of idle state descriptions, ending with empty element
  * @return zero on success and -ve on failure
  */
-int fdt_add_cpu_idle_states(void *fdt, const struct sbi_cpu_idle_state *state);
+int fdt_add_cpu_idle_states(void *dtb, const struct sbi_cpu_idle_state *state);
 
 /**
  * Fix up the CPU node in the device tree
@@ -95,19 +93,6 @@ void fdt_plic_fixup(void *fdt);
  */
 int fdt_reserved_memory_fixup(void *fdt);
 
-/** Representation of a general fixup */
-struct fdt_general_fixup {
-	struct sbi_dlist head;
-	const char *name;
-	void (*do_fixup)(struct fdt_general_fixup *f, void *fdt);
-};
-
-/** Register a general fixup */
-int fdt_register_general_fixup(struct fdt_general_fixup *fixup);
-
-/** UnRegister a general fixup */
-void fdt_unregister_general_fixup(struct fdt_general_fixup *fixup);
-
 /**
  * General device tree fix-up
  *
@@ -123,4 +108,3 @@ void fdt_unregister_general_fixup(struct fdt_general_fixup *fixup);
 void fdt_fixups(void *fdt);
 
 #endif /* __FDT_FIXUP_H__ */
-

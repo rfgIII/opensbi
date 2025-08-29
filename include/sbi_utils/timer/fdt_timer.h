@@ -11,15 +11,24 @@
 #define __FDT_TIMER_H__
 
 #include <sbi/sbi_types.h>
-#include <sbi_utils/fdt/fdt_driver.h>
 
 #ifdef CONFIG_FDT_TIMER
 
-int fdt_timer_init(void);
+struct fdt_timer {
+	const struct fdt_match *match_table;
+	int (*cold_init)(void *fdt, int nodeoff, const struct fdt_match *match);
+	int (*warm_init)(void);
+	void (*exit)(void);
+};
+
+void fdt_timer_exit(void);
+
+int fdt_timer_init(bool cold_boot);
 
 #else
 
-static inline int fdt_timer_init(void) { return 0; }
+static inline void fdt_timer_exit(void) { }
+static inline int fdt_timer_init(bool cold_boot) { return 0; }
 
 #endif
 

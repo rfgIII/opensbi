@@ -14,10 +14,15 @@ platform-ldflags-y =
 # Object to build
 platform-objs-y += platform.o
 
+# Command for platform specific "make run"
+platform-runcmd = echo LiteX/Rocket
+
 PLATFORM_RISCV_XLEN = 64
 
+FW_TEXT_START=0x80000000
+
 # Blobs to build
-FW_JUMP=n
+FW_JUMP=Y
 
 ifeq ($(PLATFORM_RISCV_XLEN), 32)
  # This needs to be 4MB aligned for 32-bit support
