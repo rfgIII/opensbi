@@ -126,7 +126,7 @@ static int ROCKET_irqchip_init(bool cold_boot)
 			return rc;
 	}
 
-	return plic_rocket_warm_irqchip_init(&plic, hartid * 2, hartid * 2 + 1);
+	return plic_rocket_warm_irqchip_init(2 * hartid, 2 * hartid + 1);
 
 }
 
