@@ -27,5 +27,6 @@ PLATFORM_RISCV_CODE_MODEL = medany
 FW_DYNAMIC=y
 FW_JUMP=y
 FW_JUMP_FDT_ADDR=0x82400000
+FW_FDT_PATH=/home/rich3/ECE_3998_Data_F25/reliability_compare_performance_benchmark/rocket_base_cpumemwidth4/xilinx_zcu102_rocket_linux.dtb"
 
 FW_PAYLOAD=n
