@@ -18,7 +18,7 @@
 #include <sbi_utils/serial/litex-uart.h>
 #include <sbi_utils/timer/aclint_mtimer.h>
 
-#define ROCKET_DEFAULT_HART_COUNT	1
+#define ROCKET_DEFAULT_HART_COUNT	8
 #define ROCKET_DEFAULT_PLATFORM_FEATURES	SBI_PLATFORM_HAS_MFAULTS_DELEGATION
 #define ROCKET_DEFAULT_UART_ADDR	0x12003000
 #define ROCKET_DEFAULT_PLIC_ADDR	0xc000000
