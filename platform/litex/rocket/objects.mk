@@ -23,13 +23,11 @@ PLATFORM_RISCV_ISA = rv64gc
 PLATFORM_RISCV_CODE_MODEL = medany
 
 # Blobs to build
-
+FW_TEXT_START=0x80F00000
 FW_DYNAMIC=y
 FW_JUMP=y
-#FW_FDT_PATH=/home/rich3/ECE_3998_Data_F25/reliability_compare_performance_benchmark/rocket_base_cpumemwidth4/xilinx_zcu102_rocket_linux.dtb
 FW_JUMP_ADDR=0x80000000
-
-FW_JUMP_FDT_ADDR=0x82400000
-
-
-FW_PAYLOAD=n
+FW_JUMP_FDT_ADDR=0x80EF0000
+FW_PAYLOAD=y
+FW_PAYLOAD_OFFSET=0x80000000
+FW_PAYLOAD_FDT_ADDR=0x80EF0000
